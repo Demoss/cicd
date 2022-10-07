@@ -12,7 +12,7 @@ steps:
     with:
       node-version: 10.14.1
   - name: Installing dependencies
-        run: npm install
+    run: npm install
 
       - name: Building the Application
         run: npm run build
