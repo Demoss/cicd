@@ -4,13 +4,12 @@ jobs:
   build:
 runs-on: ubuntu-latest
 steps:
-
   - uses: actions/checkout@v1
 
-- name: Use Node.js 10.14.1
-  uses: actions/setup-node@v1
-  with:
-    node-version: 10.14.1
+  - name: Use Node.js 10.14.1
+    uses: actions/setup-node@v1
+    with:
+      node-version: 10.14.1
 
 - name: Installing dependencies
     run: npm install
