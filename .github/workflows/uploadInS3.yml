@@ -18,10 +18,10 @@ jobs:
           node-version: 10.14.1
 
       - name: Installing dependencies
-          run: npm install
+        run: npm install
 
       - name: Building the Application
-          run: npm run build
+        run: npm run build
 
       - name: Upload to S3
         uses: jakejarvis/s3-sync-action@v0.5.0
