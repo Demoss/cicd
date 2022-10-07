@@ -12,7 +12,6 @@ type Greetings struct {
 
 func main() {
 	corsConfig := cors.DefaultConfig()
-	corsConfig.AddAllowHeaders("Authorization")
 	corsConfig.AllowAllOrigins = true
 	router := gin.Default()
 	router.Use(cors.New(corsConfig))
@@ -21,5 +20,5 @@ func main() {
 	router.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{"message": hello.Hello})
 	})
-	router.Run()
+	router.Run(":8000")
 }
