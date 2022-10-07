@@ -1,21 +1,28 @@
-name: Upload Website
-
-on:
-  push:
-    branches:
-      - master
-
+name: Build and Deploy
+on: [push]
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - uses: jakejarvis/s3-sync-action@master
+  build:
+runs-on: ubuntu-latest
+steps:
+
+  - uses: actions/checkout@v1
+
+  - name: Use Node.js 10.14.1
+    uses: actions/setup-node@v1
+    with:
+      node-version: 10.14.1
+  - name: Installing dependencies
+      run: npm install
+
+      - name: Building the Application
+        run: npm run build
+
+      - name: Upload to S3
+        uses: jakejarvis/s3-sync-action@v0.5.0
         with:
-          args: --follow-symlinks --delete --exclude 'node*' --exclude '.git*'
+          args: --delete
         env:
           AWS_S3_BUCKET: ${{ secrets.AWS_BUCKET }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          SOURCE_DIR: 'front/build'
-          DEST_DIR: ''
+            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
+            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            DEST_DIR: ''
