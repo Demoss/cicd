@@ -1,7 +1,7 @@
 #syntax=docker/dockerfile:1
 FROM golang:1.18-alpine3.16 as builder
 WORKDIR /docker
-COPY bacl/go.* ./
+COPY back/go.* ./
 COPY back .
 RUN go mod download
 RUN go build -o test-app main.go
