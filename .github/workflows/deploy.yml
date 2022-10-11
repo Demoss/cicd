@@ -32,7 +32,6 @@ jobs:
         docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
-    - name: Login by ssh
       uses: appleboy/ssh-action@master
       with:
         host: ${{secrets.HOSTNAME }}
