@@ -42,4 +42,3 @@ jobs:
           sudo docker pull $REGISTRY/$REPOSITORY:$IMAGE_TAG
           sudo docker rm -f prod
           sudo docker run -d -p 8000:8000 --name prod $REGISTRY/$REPOSITORY:$IMAGE_TAG
-
