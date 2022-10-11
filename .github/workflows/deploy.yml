@@ -33,24 +33,10 @@ jobs:
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
     - name: Login by ssh
-      env:
-        PRIVATE_KEY: ${{ secrets.PRIVATE_KEY}}
-        USERNAME: ${{ secrets.USERNAME }}
-        HOSTNAME: ${{secrets.HOSTNAME }}
-        CONTAINER_NAME: ${{ secrets.CONTAINER_NAME }}
+      uses: appleboy/ssh-action@mater
+      with:
+        host: ${{secrets.HOSTNAME }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.PRIVATE_KEY }}
+        script: whoami
 
-      run: |
-        echo "$PRIVATE_KEY" > private_key.pem && chmod 400 private_key.pem
-        ssh -o StrictHostKeyChecking=no -i -t "private_key.pem" ${USERNAME}@${HOSTNAME}
-
-    - name: Pull docker image
-      run: |
-        sudo docker pull $REGISTRY/$REPOSITORY:$IMAGE_TAG
-
-    - name: kill previous container
-      run: |
-        sudo docker kill $CONTAINER_NAME
-
-    - name: start container
-      run: |
-        sudo docker run -d -p 8000:8000 --name $CONTAINER_NAME $REGISTRY/$REPOSITORY:$IMAGE_TAG
