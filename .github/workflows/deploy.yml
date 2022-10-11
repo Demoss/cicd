@@ -41,7 +41,7 @@ jobs:
 
       run: |
         echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-        ssh -i private_key ${USERNAME}@${HOSTNAME}
+        ssh -i -t private_key ${USERNAME}@${HOSTNAME}
 
     - name: Pull docker image
       run: |
@@ -53,4 +53,4 @@ jobs:
 
     - name: start container
       run: |
-        sudo docker run -d -p 8000:8000 --name $CONTAINER_NAME $REGISTRY/$REPOSITORY:$IMAGE_TAG
+        sudo ssh -o StrictHostKeyChecking=no docker run -d -p 8000:8000 --name $CONTAINER_NAME $REGISTRY/$REPOSITORY:$IMAGE_TAG
