@@ -38,5 +38,8 @@ jobs:
         host: ${{secrets.HOSTNAME }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.PRIVATE_KEY }}
-        script: whoami
+        script: |
+          sudo docker pull $REGISTRY/$REPOSITORY:$IMAGE_TAG
+          sudo docker kill $CONTAINER_NAME
+          sudo docker run -d -p 8000:8000 --name $CONTAINER_NAME $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
