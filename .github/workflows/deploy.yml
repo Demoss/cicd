@@ -34,6 +34,8 @@ jobs:
 
     - name: Login by ssh
       uses: appleboy/ssh-action@master
+      env:
+        CONTAINER_NAME: ${{ secrets.CONTAINER_NAME }}
       with:
         host: ${{secrets.HOSTNAME }}
         username: ${{ secrets.USERNAME }}
