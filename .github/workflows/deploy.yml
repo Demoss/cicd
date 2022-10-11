@@ -41,7 +41,7 @@ jobs:
 
       run: |
         echo "$PRIVATE_KEY" > private_key.pem && chmod 400 private_key.pem
-        ssh -o StrictHostKeyChecking=no -i -t private_key.pem ${USERNAME}@${HOSTNAME}
+        ssh -o StrictHostKeyChecking=no -i -t "private_key.pem" ${USERNAME}@${HOSTNAME}
 
     - name: Pull docker image
       run: |
