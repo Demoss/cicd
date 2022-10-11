@@ -34,12 +34,11 @@ jobs:
 
     - name: Login by ssh
       uses: appleboy/ssh-action@master
-      env:
-        CONTAINER_NAME: ${{ secrets.CONTAINER_NAME }}
       with:
         host: ${{secrets.HOSTNAME }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.PRIVATE_KEY }}
+        CONTAINER_NAME: ${{ secrets.CONTAINER_NAME }}
         script: |
           sudo docker pull $REGISTRY/$REPOSITORY:$IMAGE_TAG
           sudo docker kill $CONTAINER_NAME
