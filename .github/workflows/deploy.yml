@@ -33,15 +33,12 @@ jobs:
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
     - name: Login by ssh
-      env:
-        REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        REPOSITORY: fullstack-app
-        IMAGE_TAG: ${{ github.sha }}
       uses: appleboy/ssh-action@master
       with:
         host: ${{secrets.HOSTNAME }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.PRIVATE_KEY }}
+        envs: REGISTRY,REPOSITORY,IMAGE_TAG
         script: |
           docker rm -f prod
           docker pull $REGISTRY/$REPOSITORY:$IMAGE_TAG
