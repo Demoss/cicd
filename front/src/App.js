@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import axios from "axios"
 function App() {
     const [hello, setHello] = useState("")
-    const url = 'http://localhost:8000'
+    const url = 'http://ec2-35-86-83-50.us-west-2.compute.amazonaws.com:8000'
     useEffect(() => {
         axios.get(url)
             .then(res => {
