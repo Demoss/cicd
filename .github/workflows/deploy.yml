@@ -36,7 +36,7 @@ jobs:
       env:
         REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         REPOSITORY: fullstack-app
-        IMAGE_TAG: ${{ github.sha }}
+        IMAGE_TAG: latest
       uses: appleboy/ssh-action@master
       with:
         host: ${{secrets.HOSTNAME }}
