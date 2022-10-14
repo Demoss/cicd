@@ -46,4 +46,4 @@ jobs:
         script: |
           sudo aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 069166068601.dkr.ecr.us-west-2.amazonaws.com
           docker pull $REGISTRY/$REPOSITORY:$IMAGE_TAG
-          docker stack deploy -c docker.yml demo
+          docker stack deploy --with-registry-auth -c docker.yml demo
