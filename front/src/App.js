@@ -14,7 +14,7 @@ function App() {
     {
         return (
             <div>
-                <b>{hello.message}</b>
+                <b>{hello.message} + for Oleksiy</b>
             </div>
         )
     }
