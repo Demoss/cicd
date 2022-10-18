@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import axios from "axios"
 function App() {
     const [hello, setHello] = useState("")
-    const url = 'http://ec2-35-86-83-50.us-west-2.compute.amazonaws.com:8000'
+    const url = 'https://www.dev.artem.premia.vhost.kiev.ua/api'
     useEffect(() => {
         axios.get(url)
             .then(res => {
@@ -14,7 +14,7 @@ function App() {
     {
         return (
             <div>
-                <b>{hello.message} + for Oleksiy</b>
+                <b>{hello.message}</b>
             </div>
         )
     }
