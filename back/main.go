@@ -15,7 +15,7 @@ func main() {
 	corsConfig.AllowAllOrigins = true
 	router := gin.Default()
 	router.Use(cors.New(corsConfig))
-	hello := Greetings{Hello: "welcome github again"}
+	hello := Greetings{Hello: "test is everything ok"}
 
 	router.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{"message": hello.Hello})
