@@ -7,7 +7,7 @@ on:
 
 env:
   AWS_REGION: us-west-2
-  ECR_REPOSITORY: 069166068601.dkr.ecr.us-west-2.amazonaws.com/fullstack-app
+  ECR_REPOSITORY: fullstack-app
   ECS_SERVICE: test-2-service
   ECS_CLUSTER: test-2-ec2
   ECS_TASK_DEFINITION: .github/workflows/task.definition.json
