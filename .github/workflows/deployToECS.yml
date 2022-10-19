@@ -10,7 +10,7 @@ env:
   ECR_REPOSITORY: fullstack-app
   ECS_SERVICE: test-2-service
   ECS_CLUSTER: test-2-ec2
-  ECS_TASK_DEFINITION: .github/workflows/task.definition.json
+  ECS_TASK_DEFINITION: .github/workflows/task-definition.json
   # file, e.g. .aws/task-definition.json
   CONTAINER_NAME: test
 
