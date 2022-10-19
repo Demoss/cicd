@@ -9,7 +9,7 @@
       "entryPoint": null,
       "portMappings": [
         {
-          "hostPort": 8000,
+          "hostPort": 0,
           "protocol": "tcp",
           "containerPort": 8000
         }
@@ -29,7 +29,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "069166068601.dkr.ecr.us-west-2.amazonaws.com/fullstack-app:latest",
+      "image": "069166068601.dkr.ecr.us-west-2.amazonaws.com/fullstack-app:065103e5b53add07839b446365cec324fab304e5",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -56,7 +56,7 @@
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-west-2:069166068601:task-definition/test:7",
+  "taskDefinitionArn": "arn:aws:ecs:us-west-2:069166068601:task-definition/test:12",
   "family": "test",
   "requiresAttributes": [
     {
@@ -73,7 +73,7 @@
   "networkMode": "bridge",
   "runtimePlatform": null,
   "cpu": null,
-  "revision": 7,
+  "revision": 12,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
