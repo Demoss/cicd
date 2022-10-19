@@ -11,7 +11,6 @@ env:
   ECS_SERVICE: test-2-service
   ECS_CLUSTER: test-2-ec2
   ECS_TASK_DEFINITION: .github/workflows/task-definition.json
-  # file, e.g. .aws/task-definition.json
   CONTAINER_NAME: test
 
 jobs:
@@ -46,7 +45,7 @@ jobs:
           # be deployed to ECS.
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+          echo "{image}={$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG}" >> $GITHUB_OUTPUT
 
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
