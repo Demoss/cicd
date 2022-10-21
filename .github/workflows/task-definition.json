@@ -23,7 +23,11 @@
       "dnsServers": null,
       "mountPoints": [],
       "workingDirectory": null,
-      "secrets": null,
+      "secrets": [
+        {
+          "test":"arm:aws:secretsmanager:us-west-2:069166068601:secret:prod/fullstack/test"
+        }
+      ],
       "dockerSecurityOptions": null,
       "memory": 256,
       "memoryReservation": null,
