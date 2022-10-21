@@ -25,8 +25,8 @@
       "workingDirectory": null,
       "secrets": [
         {
-          "valueFrom": "arn:aws:secretsmanager:us-west-2:069166068601:secret:prod/fullstack/test-XviXNm",
-          "name": "test"
+          "name": "test",
+          "valueFrom": "arn:aws:secretsmanager:us-west-2:069166068601:secret:prod/fullstack/test-XviXNm"
         }
       ],
       "dockerSecurityOptions": null,
@@ -34,7 +34,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "069166068601.dkr.ecr.us-west-2.amazonaws.com/fullstack-app:0b88ad17cdbcde8b69f27d2d9679d4ffc2a524b5",
+      "image": "069166068601.dkr.ecr.us-west-2.amazonaws.com/fullstack-app:8937ed7de7dde5eb8003388eff13d8e5b5bad8a9",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -61,7 +61,7 @@
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-west-2:069166068601:task-definition/test:18",
+  "taskDefinitionArn": "arn:aws:ecs:us-west-2:069166068601:task-definition/test:15",
   "family": "test",
   "requiresAttributes": [
     {
@@ -69,18 +69,6 @@
       "targetType": null,
       "value": null,
       "name": "com.amazonaws.ecs.capability.ecr-auth"
-    },
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "ecs.capability.secrets.asm.environment-variables"
-    },
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "ecs.capability.execution-role-ecr-pull"
     }
   ],
   "pidMode": null,
@@ -90,7 +78,7 @@
   "networkMode": "bridge",
   "runtimePlatform": null,
   "cpu": null,
-  "revision": 18,
+  "revision": 15,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
