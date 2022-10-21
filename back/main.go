@@ -1,10 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	"github.com/joho/godotenv"
 	"net/http"
 )
 
@@ -13,10 +11,6 @@ type Greetings struct {
 }
 
 func main() {
-	if err := godotenv.Load(); err != nil {
-		fmt.Println(err)
-		return
-	}
 	corsConfig := cors.DefaultConfig()
 	corsConfig.AllowAllOrigins = true
 	router := gin.Default()
