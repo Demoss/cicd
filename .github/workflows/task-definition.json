@@ -26,7 +26,7 @@
       "secrets": [
         {
           "name": "test",
-          "valueFrom":"arm:aws:secretsmanager:us-west-2:069166068601:secret:test"
+          "valueFrom":"arn:aws:secretsmanager:us-west-2:069166068601:secret:prod/fullstack/test-XviXNm"
         }
       ],
       "dockerSecurityOptions": null,
