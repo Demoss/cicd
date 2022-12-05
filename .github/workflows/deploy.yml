@@ -18,7 +18,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-west-2
+        aws-region: ${{ secrets.AWS_REGION}}
     - name: Login to Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
@@ -26,24 +26,24 @@ jobs:
     - name: Build, tag, and push docker image to Amazon ECR
       env:
         REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        REPOSITORY: fullstack-app
+        REPOSITORY: ${{secrets.AWS_ECR_REPO}}
         IMAGE_TAG: latest
       run: |
         docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
-    - name: Login by ssh
-      env:
-        REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        REPOSITORY: fullstack-app
-        IMAGE_TAG: latest
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{secrets.HOSTNAME }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.PRIVATE_KEY }}
-        envs: REGISTRY,REPOSITORY,IMAGE_TAG
-        script: |
-          sudo aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 069166068601.dkr.ecr.us-west-2.amazonaws.com
-          docker pull $REGISTRY/$REPOSITORY:$IMAGE_TAG
-          docker stack deploy --with-registry-auth -c docker.yml demo
+ #   - name: Login by ssh
+ #     env:
+ #       REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+ #       REPOSITORY: fullstack-app
+ #       IMAGE_TAG: latest
+ #     uses: appleboy/ssh-action@master
+ #     with:
+ #       host: ${{secrets.HOSTNAME }}
+ #       username: ${{ secrets.USERNAME }}
+ #       key: ${{ secrets.PRIVATE_KEY }}
+ #       envs: REGISTRY,REPOSITORY,IMAGE_TAG
+ #       script: |
+ #         sudo aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 069166068601.dkr.ecr.us-west-2.amazonaws.com
+ #         docker pull $REGISTRY/$REPOSITORY:$IMAGE_TAG
+ #         docker stack deploy --with-registry-auth -c docker.yml demo
