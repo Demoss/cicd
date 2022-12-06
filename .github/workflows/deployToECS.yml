@@ -3,15 +3,14 @@ name: Deploy to Amazon ECS
 on:
   push:
     branches:
-      - 1
+      - master
 
 env:
-  AWS_REGION: us-west-2
-  ECR_REPOSITORY: fullstack-app
-  ECS_SERVICE: test-2-service
-  ECS_CLUSTER: test-2-ec2
+  ECR_REPOSITORY: ${{ secrets.AWS_ECR_REPO}}
+  ECS_SERVICE: back
+  ECS_CLUSTER: terraform
   ECS_TASK_DEFINITION: .github/workflows/task-definition.json
-  CONTAINER_NAME: test
+  CONTAINER_NAME: back
 
 jobs:
   deploy:
@@ -27,7 +26,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-west-2
+          aws-region: ${{ secrets.AWS_REGION}}
 
       - name: Login to Amazon ECR
         id: login-ecr

@@ -1,6 +1,6 @@
 {
   "ipcMode": null,
-  "executionRoleArn": "arn:aws:iam::069166068601:role/ecsTaskExecutionRole",
+  "executionRoleArn": null,
   "containerDefinitions": [
     {
       "dnsSearchDomains": null,
@@ -9,7 +9,7 @@
       "entryPoint": null,
       "portMappings": [
         {
-          "hostPort": 0,
+          "hostPort": 80,
           "protocol": "tcp",
           "containerPort": 8000
         }
@@ -17,29 +17,19 @@
       "command": null,
       "linuxParameters": null,
       "cpu": 0,
-      "environment": [
-        {
-          "name": "test2",
-          "value": "test_env_variable_in_environment"
-        }
-      ],
+      "environment": [],
       "resourceRequirements": null,
       "ulimits": null,
       "dnsServers": null,
       "mountPoints": [],
       "workingDirectory": null,
-      "secrets": [
-        {
-          "name": "test",
-          "valueFrom": "arn:aws:secretsmanager:us-west-2:069166068601:secret:prod/fullstack/test-XviXNm:test::"
-        }
-      ],
+      "secrets": null,
       "dockerSecurityOptions": null,
       "memory": 256,
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "069166068601.dkr.ecr.us-west-2.amazonaws.com/fullstack-app:8937ed7de7dde5eb8003388eff13d8e5b5bad8a9",
+      "image": "468955750028.dkr.ecr.eu-central-1.amazonaws.com/terraform:latest",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -56,7 +46,7 @@
       "dockerLabels": null,
       "systemControls": null,
       "privileged": null,
-      "name": "test"
+      "name": "back"
     }
   ],
   "placementConstraints": [],
@@ -66,8 +56,8 @@
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-west-2:069166068601:task-definition/test:15",
-  "family": "test",
+  "taskDefinitionArn": "arn:aws:ecs:eu-central-1:468955750028:task-definition/back:5",
+  "family": "back",
   "requiresAttributes": [
     {
       "targetId": null,
@@ -83,7 +73,7 @@
   "networkMode": "bridge",
   "runtimePlatform": null,
   "cpu": null,
-  "revision": 15,
+  "revision": 5,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,

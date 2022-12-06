@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ecef54c-6404-4e67-9bdc-2b25249f199e" name="Changes" comment="test is everything ok">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/deployToECS.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/workflows/task-definition.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/uploadInS3.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/uploadInS3.yml" afterDir="false" />
+    <list default="true" id="9ecef54c-6404-4e67-9bdc-2b25249f199e" name="Changes" comment="deactivate deployToECS.yml">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/deployToECS.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deployToECS.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -16,7 +13,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="GOROOT" url="file://$USER_HOME$/sdk/go1.18" />
+  <component name="GOROOT" url="file://$USER_HOME$/go/go1.19" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -45,9 +42,10 @@
     &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
+    &quot;TF_FMT&quot;: &quot;false&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Kseniia/go/src/CICD/front/src&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/artem/GolandProjects/cicd&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.YAML&quot;
   }
@@ -98,7 +96,9 @@
     <MESSAGE value="test front" />
     <MESSAGE value="test" />
     <MESSAGE value="test is everything ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="test is everything ok" />
+    <MESSAGE value="check something" />
+    <MESSAGE value="deactivate deployToECS.yml" />
+    <option name="LAST_COMMIT_MESSAGE" value="deactivate deployToECS.yml" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
